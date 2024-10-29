@@ -4,6 +4,7 @@
     height: 300px;
     margin: 10px;
     background-color: #D9E4F9;
+    padding-bottom: 30px;
 }
   
 .draggable {
@@ -12,6 +13,7 @@
     padding: 10px;
     cursor: move;
     text-align: center;
+    width: 75%;
 }
 
 #AnswersBox{
@@ -23,8 +25,35 @@
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 #title{
     text-align: center;
+    width: 100%;
+}
+
+#AnswerContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+#GoogleAnswers{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+#MicrosoftAnswers{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+#AmazonAnswers{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
 }

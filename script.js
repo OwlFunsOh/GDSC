@@ -1,5 +1,6 @@
-const GoogleAnswers = ['Gmail', 'Chrome', ];
-const MicrosoftAnswers = ['Draggable 1', 'Draggable 2'];
+const GoogleAnswers = ['Gmail', 'Chrome', 'Youtube', 'Gemini'];
+const MicrosoftAnswers = ['Bing', 'Copilot', 'Excel', 'OneDrive'];
+const AmazonAnswers = ['Kindle', 'Simple Storage Service', 'Amplify', 'Lambda']
 
 //check for items in container
 function getItemsInContainer(containerId) {
@@ -11,6 +12,8 @@ function getItemsInContainer(containerId) {
             items.push(child.textContent.trim());
           }
     });
+
+    //alert(items);
     return items;
 }
 
@@ -22,10 +25,12 @@ function checkAnswers(containerId){
 
     actualAnswers = null;
 
-    if(containerId == 'GoogleBox'){
+    if(containerId == 'GoogleAnswers'){
         actualAnswers = GoogleAnswers;
-    }else if(containerId == 'MicrosoftBox'){
+    }else if(containerId == 'MicrosoftAnswers'){
         actualAnswers = MicrosoftAnswers;
+    }else if(containerId == 'AmazonAnswers'){
+        actualAnswers = AmazonAnswers;
     }
 
     actualAnswers.sort()
@@ -34,13 +39,26 @@ function checkAnswers(containerId){
         userAnswers.every((value, index) => value == actualAnswers[index])){
             correct = true;
     }
-
-    if(correct == true){
-        setTimeout(() => {
-            alert('Items Match!');
-          }, 100); // Adjust the delay as needed
-    }
     
+    //if(correct == true){
+    //    setTimeout(() => {
+    //        alert('Items Match!');
+    //      }, 100); // Adjust the delay as needed
+    //}
+    
+    return correct;
+}
+
+function checkAllAnswers(){
+    GoogleCorrect = checkAnswers('GoogleAnswers');
+    AmazonCorrect = checkAnswers('AmazonAnswers');
+    MicrosoftCorrect = checkAnswers('MicrosoftAnswers')
+
+    if(GoogleCorrect && AmazonCorrect && MicrosoftCorrect){
+      return true;
+    }
+
+    return false;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -70,14 +88,22 @@ document.addEventListener('DOMContentLoaded', function() {
         //check dropped container
         //trolling time :D
         if(container.id == 'GoogleBox'){
-            document.getElementById('AnswersBox').appendChild(draggable);
+            document.getElementById('AnswerContainer').appendChild(draggable);
         } else if(container.id == 'MicrosoftBox'){
-            document.getElementById('AmazonBox').appendChild(draggable);
+            document.getElementById('AmazonAnswers').appendChild(draggable);
+            checkAnswers('AmazonAnswers');
         } else if(container.id == 'AmazonBox'){
-            document.getElementById('MicrosoftBox').appendChild(draggable);
-            checkAnswers('MicrosoftBox')
+            document.getElementById('MicrosoftAnswers').appendChild(draggable);
+            checkAnswers('MicrosoftAnswers');
         } else if(container.id == 'AnswersBox'){
-            document.getElementById('GoogleBox').appendChild(draggable);
+            document.getElementById('GoogleAnswers').appendChild(draggable);
+            checkAnswers('GoogleAnswers');
+        }
+
+        if(checkAllAnswers()){
+          setTimeout(() => {
+          alert('All Items Match!');
+          }, 100); // Adjust the delay as needed
         }
   
       });
