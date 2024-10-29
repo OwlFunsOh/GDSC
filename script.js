@@ -1,6 +1,6 @@
 const GoogleAnswers = ['Gmail', 'Chrome', 'Youtube', 'Gemini'];
 const MicrosoftAnswers = ['Bing', 'Copilot', 'Excel', 'OneDrive'];
-const AmazonAnswers = ['Kindle', 'Simple Storage Service', 'Amplify', 'Lambda']
+const AmazonAnswers = ['Kindle', 'Rufus', 'Amplify', 'Lambda']
 
 //check for items in container
 function getItemsInContainer(containerId) {
