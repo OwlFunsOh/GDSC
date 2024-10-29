@@ -1,0 +1,30 @@
+.container {
+    border: 1px solid black;
+    width: 30%;
+    height: 300px;
+    margin: 10px;
+    background-color: #D9E4F9;
+}
+  
+.draggable {
+    background-color: lightblue;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: move;
+    text-align: center;
+}
+
+#AnswersBox{
+    width: 40%;
+    justify-self: center;
+}
+
+#bottomContainers{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+#title{
+    text-align: center;
+}
